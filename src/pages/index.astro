@@ -1,0 +1,68 @@
+---
+
+import Tour from '../components/Tour.astro';
+import '../styles/w3.css';
+import Kanik from '../components/Kanik.svelte';
+
+let title = 'My Astro Site';
+console.log("hello akhil");
+
+---
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{title}</title>
+
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="stylesheet" href={Astro.resolve('../styles/bootstrap.min.css')}>
+    
+
+    <style>
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: min(100%, 68ch);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <div>
+                <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
+                <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button class="w3-button w3-black">Black</button>
+            </div>
+
+        <div x-data="{ open: false }">
+    <button @click="open = true">Expand</button>
+ 
+    <span x-show="open">
+      <h1>Hello Vani</h1>
+    </span>
+</div>
+
+<img class="nature" src="https://jooinn.com/images/dramatic-landscape-7.jpg">
+<img class="nature" src="https://hddesktopwallpapers.in/wp-content/uploads/2015/09/switzerland-images.jpg">
+<img class="nature" src="https://images5.alphacoders.com/414/thumb-1920-414718.jpg">
+        </header>
+
+        <Tour />
+        <Kanik client:load />
+    </main>
+    <script src={Astro.resolve('../alpine.min.js')}></script>
+    <script src={Astro.resolve('../w3.js')}></script>
+    <script src={Astro.resolve('../bootstrap.bundle.min.js')}></script>
+    <script src={Astro.resolve('../nedb.min.js')}></script>
+
+
+    <script>
+      console.log("hello kanik");
+      var db = new Nedb({filename: 'Kanik.db',autoload: true });
+      w3.slideshow(".nature");
+    </script>
+</body>
+</html>
