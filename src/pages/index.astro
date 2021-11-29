@@ -16,7 +16,8 @@ console.log("hello akhil");
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="stylesheet" href={Astro.resolve('../styles/bootstrap.min.css')}>
-    
+        <script src={Astro.resolve('../w3.js')}></script>
+        <script>w3.slideshow(".nature");</script>
 
     <style>
         header {
@@ -37,6 +38,26 @@ console.log("hello akhil");
                 <button class="w3-button w3-black">Black</button>
             </div>
 
+            <p>
+<button class="w3-button w3-red" onclick="w3.hide('#London')">Hide</button>
+<button class="w3-button w3-red" onclick="w3.show('#London')">Show</button>
+</p>
+
+<div id="London" class="w3-panel w3-red city">
+  <h2>London</h2>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="w3-panel w3-red city">
+  <h2>Paris</h2>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Tokyo" class="w3-panel w3-red city">
+  <h2>Tokyo</h2>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
         <div x-data="{ open: false }">
     <button @click="open = true">Expand</button>
  
@@ -54,7 +75,7 @@ console.log("hello akhil");
         <Kanik client:load />
     </main>
     <script src={Astro.resolve('../alpine.min.js')}></script>
-    <script src={Astro.resolve('../w3.js')}></script>
+    
     <script src={Astro.resolve('../bootstrap.bundle.min.js')}></script>
     <script src={Astro.resolve('../nedb.min.js')}></script>
 
@@ -62,7 +83,7 @@ console.log("hello akhil");
     <script>
       console.log("hello kanik");
       var db = new Nedb({filename: 'Kanik.db',autoload: true });
-      w3.slideshow(".nature");
+      
     </script>
 </body>
 </html>
