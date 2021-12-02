@@ -3,9 +3,14 @@
 import Tour from '../components/Tour.astro';
 import '../styles/w3.css';
 import Kanik from '../components/Kanik.svelte';
+import FriendAdder from '../components/FriendAdder.svelte';
+
+
 
 let title = 'My Astro Site';
 console.log("hello akhil");
+var aa = 'zomato';
+
 
 ---
 <html lang="en">
@@ -16,8 +21,8 @@ console.log("hello akhil");
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="stylesheet" href={Astro.resolve('../styles/bootstrap.min.css')}>
-        <script src={Astro.resolve('../w3.js')}></script>
-        <script>w3.slideshow(".nature");</script>
+        <!-- <script src={Astro.resolve('../nedb.min.js')}></script> -->
+        <script> var db = new Nedb({filename: 'Biggu.db',autoload: true }); </script>
 
     <style>
         header {
@@ -35,36 +40,14 @@ console.log("hello akhil");
                 <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
                 <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
                 <button type="button" class="btn btn-primary">Primary</button>
-                <button class="w3-button w3-black">Black</button>
+                <input type="text" id="zzz">
+                <button id="xyz" class="w3-button w3-black">Black</button>
+                
             </div>
 
-            <p>
-<button class="w3-button w3-red" onclick="w3.hide('#London')">Hide</button>
-<button class="w3-button w3-red" onclick="w3.show('#London')">Show</button>
-</p>
+    
 
-<div id="London" class="w3-panel w3-red city">
-  <h2>London</h2>
-  <p>London is the capital city of England.</p>
-</div>
-
-<div id="Paris" class="w3-panel w3-red city">
-  <h2>Paris</h2>
-  <p>Paris is the capital of France.</p> 
-</div>
-
-<div id="Tokyo" class="w3-panel w3-red city">
-  <h2>Tokyo</h2>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
-        <div x-data="{ open: false }">
-    <button @click="open = true">Expand</button>
- 
-    <span x-show="open">
-      <h1>Hello Vani</h1>
-    </span>
-</div>
+     
 
 <img class="nature" src="https://jooinn.com/images/dramatic-landscape-7.jpg">
 <img class="nature" src="https://hddesktopwallpapers.in/wp-content/uploads/2015/09/switzerland-images.jpg">
@@ -73,17 +56,18 @@ console.log("hello akhil");
 
         <Tour />
         <Kanik client:load />
+        <FriendAdder client:load />
     </main>
-    <script src={Astro.resolve('../alpine.min.js')}></script>
     
     <script src={Astro.resolve('../bootstrap.bundle.min.js')}></script>
-    <script src={Astro.resolve('../nedb.min.js')}></script>
+    
 
 
     <script>
       console.log("hello kanik");
-      var db = new Nedb({filename: 'Kanik.db',autoload: true });
       
+      document.getElementById("xyz").addEventListener("click",function(){zz = document.getElementById("zzz").value  ; db.insert({name: zz});} );
+       
     </script>
 </body>
 </html>
