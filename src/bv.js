@@ -1,21 +1,15 @@
 import {writable} from 'svelte/store';
 
-import './nedb.min.js';
+import Dexie from 'dexie';
 
-var database1 = new Nedb({filename: 'Product.db', autoload: true });
-var database2 = new Nedb({filename: 'order.db', autoload: true });
-var database3 = new Nedb({filename: 'Review.db', autoload: true });
+  
 
+ const db = new Dexie('myAppData');
+ db.version(1).stores({ friends: '++id, name, age', });
 
-let product = writable(database1);
-let order   = writable(database2);
-let review  = writable(database3);
-let counter = writable(0);
-let totaly  = writable(0);
+ let product = writable(db);
 
-
-export {product , order , review , counter ,totaly}  ;
-
+export {product} ;
 
 
 
