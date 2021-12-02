@@ -21,8 +21,6 @@ var aa = 'zomato';
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="stylesheet" href={Astro.resolve('../styles/bootstrap.min.css')}>
-        <!-- <script src={Astro.resolve('../nedb.min.js')}></script> -->
-        <script> var db = new Nedb({filename: 'Biggu.db',autoload: true }); </script>
 
     <style>
         header {
@@ -66,7 +64,6 @@ var aa = 'zomato';
     <script>
       console.log("hello kanik");
       
-      document.getElementById("xyz").addEventListener("click",function(){zz = document.getElementById("zzz").value  ; db.insert({name: zz});} );
        
     </script>
 </body>
